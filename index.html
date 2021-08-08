@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Alison Jane | Portfolio Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+  <div class="row">
+    <div class="logo column-header">
+      <h2>Alison Jane</h2>
+    </div>
+    <div class="nav column-header">
+      <nav>
+        <a href="#home">HOME</a>
+        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </div>
+  </div>
+  <div id="home" class="container intro-section">
+    <div class="row">
+      <div class="column-header">
+        <p>Hi, I'm a front-end developer who loves design and css. I recently finished learning front-end web
+          development
+          at Treehouse and am excited to put all my skills to use!</p>
+      </div>
+      <div class="column-header">
+        <img class="image right" src="./images/responsive-layout-profile.png">
+      </div>
+    </div>
+  </div>
+  <div id="portfolio" class="container align-center">
+    <div class="row">
+      <h2 class="section-title">Portfolio</h2>
+      <div onclick="toggleModal('Marketing Page', './images/portfolio-1.png')" class="card column-portfolio">
+        <img class="image" src="./images/portfolio-1.png" alt="">
+        <h4>Marketing Page</h4>
+        <p>This project shows the marketing page of a marketing website meant for specific business I'm interested in
+        </p>
+      </div>
+      <div onclick="toggleModal('Search Page', './images/portfolio-2.png')" class="card column-portfolio">
+        <img class="image" src="./images/portfolio-2.png" alt="">
+        <h4>Search Page</h4>
+        <p>This project searches through specific database to find information that the user is trying to lookup.
+        </p>
+      </div>
+      <div onclick="toggleModal('Travel App', './images/portfolio-3.png')" class="card column-portfolio">
+        <img class="image" src="./images/portfolio-3.png" alt="">
+        <h4>Travel App</h4>
+        <p>This project compares travel times based on different transportation methods and tells you the best one.
+        </p>
+      </div>
+      <div onclick="toggleModal('Map of Favorite Spots', './images/portfolio-4.png','')" class="card column-portfolio">
+        <img class="image" src="./images/portfolio-4.png" alt="">
+        <h4>Map of Favorite Spots</h4>
+        <p>This project uses mapping apis to plot points for my favorite spots in the city for a do-it-yourself walking
+          tour.
+        </p>
+      </div>
+      <div onclick="toggleModal('Photo Gallery', './images/portfolio-5.png')" class="card column-portfolio">
+        <img class="image" src="./images/portfolio-5.png" alt="">
+        <h4>Photo Gallery</h4>
+        <p>This project shows pictures from a recent trip the the viewer and allows them to easily navigate throught the
+          photos.
+        </p>
+      </div>
+      <div onclick="toggleModal('Calculator', './images/portfolio-6.png')" class="card column-portfolio">
+        <img class="image" src="./images/portfolio-6.png" alt="">
+        <h4>Calculator</h4>
+        <p>Someone can enter the numbers they want and press the big blue button and get the result.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="skills" class="container">
+    <h3 class=" align-center section-title">Skills</h3>
+    <div class="row">
+      <div class="column-header">
+        <img class="image right" src="./images/responsive-layout-profile.png">
+      </div>
+      <div class="column-header">
+        <ul>
+          <li>HTML 5</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>      
+    </div>
+  </div>
+  <div id="contact" class="container align-center contact-section">
+    <h3 class="section-title">CONTACT</h3>
+    <p class="text-large">If you're interested or want more information <br> about what I've been working on, I'd love
+      to hear from you!</p>
+    <p>Phone <b>+1 (111) 555-1234</b></p>
+    <p>Email <b>Alison@myportfolio.com</b></p>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="logo column-header">
+      <h2>Alison Jane</h2>
+    </div>
+    <div class="nav column-header">
+      <nav>
+        <a class="footer-link" href="#home">HOME</a>
+        <a class="footer-link" href="#skills">SKILLS</a>
+        <a class="footer-link" href="#portfolio">PORTFOLIO</a>
+        <a class="footer-link" href="#contact">CONTACT</a>
+        <a class="back-to-top" href="#home">Back to top</a>
+      </nav>
+    </div>
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2></h2>
+        <img class="image"></img>
+        <p></p>
+      </div>
+    </div>
+    <script>
+      const modal = document.querySelector(".modal");
+      const modal_title = document.querySelector(".modal-content h2");
+      const modal_image = document.querySelector(".modal-content img");
+      const closeButton = document.querySelector(".close-button");
+
+      function toggleModal(title, image) {
+        modal.classList.toggle("show-modal");
+        modal_title.innerText = title
+        modal_image.setAttribute('src', image)
+      }
+
+      function windowOnClick(event) {
+        if (event.target === modal) {
+          toggleModal('', '');
+        }
+      }
+
+      closeButton.addEventListener("click", toggleModal);
+      window.addEventListener("click", windowOnClick);
+    </script>
+</body>
+
+</html>
